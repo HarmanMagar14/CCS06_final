@@ -1,0 +1,22 @@
+CREATE TABLE users (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    usertype VARCHAR(50) NOT NULL DEFAULT 'user',
+    PRIMARY KEY (id)
+);
+
+
+CREATE TABLE articles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    source_url VARCHAR(2083) NOT NULL,
+    date_published DATE NOT NULL,
+    category VARCHAR(100) NOT NULL,
+    status ENUM('Pending', 'Approved', 'Rejected') DEFAULT 'Pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
